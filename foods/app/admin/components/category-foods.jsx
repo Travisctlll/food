@@ -12,8 +12,8 @@ const option = {
 
 export const CategoryFoods = ({ data }) => {
   const [foodsData, setFoodsData] = useState([]);
-
-  const foodApiLink = `http://localhost:8000/food`;
+  const url = process.env.NEXT_PUBLIC_BACKEND_URL;
+  const foodApiLink = `${url}/food`;
 
   const getData = async () => {
     const data = await fetch(foodApiLink, option);

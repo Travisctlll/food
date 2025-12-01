@@ -14,8 +14,8 @@ const option = {
 
 export default function Home() {
   const [categoryData, setCategoryData] = useState([]);
-
-  const categoryApiLink = `http://localhost:8000/category`;
+  const url = process.env.NEXT_PUBLIC_BACKEND_URL;
+  const categoryApiLink = `${url}/category`;
 
   const getData = async () => {
     const categoryData = await fetch(categoryApiLink, option);

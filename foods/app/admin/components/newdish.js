@@ -27,6 +27,7 @@ export const NewDish = ({ data }) => {
   const [editPrice, setEditPrice] = useState("");
   const [editIngredients, setEditIngerdients] = useState("");
   const [foodData, setFoodData] = useState([]);
+  const url = process.env.NEXT_PUBLIC_BACKEND_URL;
 
   const uploadToCloudinary = async (file) => {
     const formData = new FormData();
@@ -55,7 +56,7 @@ export const NewDish = ({ data }) => {
   };
 
   const getData = async () => {
-    const data = await fetch(`http://localhost:8000/food/`, option);
+    const data = await fetch(`${url}/food/`, option);
     const jsonData = await data.json();
     setFoodData(jsonData);
   };
@@ -72,7 +73,7 @@ export const NewDish = ({ data }) => {
 
   const handleSubmit = async () => {
     try {
-      await fetch(`http://localhost:8000/food`, {
+      await fetch(`${url}/food`, {
         method: "POST",
         headers: {
           "content-type": "application/json",

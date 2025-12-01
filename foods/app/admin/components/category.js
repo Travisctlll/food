@@ -26,7 +26,8 @@ const option = {
 export const Category = () => {
   const [categoryData, setCategoryData] = useState([]);
   const [handleClick, setHandleClick] = useState("");
-  const categoryApiLink = `http://localhost:8000/category`;
+  const url = process.env.NEXT_PUBLIC_BACKEND_URL;
+  const categoryApiLink = `${url}/category`;
 
   const category = (e) => {
     setHandleClick(e.target.value);
@@ -43,7 +44,7 @@ export const Category = () => {
 
   const handleSubmit = async () => {
     try {
-      const res = await fetch("http://localhost:8000/category", {
+      const res = await fetch(`${url}/category`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
