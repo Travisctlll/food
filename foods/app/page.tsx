@@ -13,7 +13,7 @@ const option = {
 };
 
 export default function Home() {
-  const [categoryData, setCategoryData] = useState([]);
+  const [categoryData, setCategoryData] = useState<any[]>([]);
   const url = process.env.NEXT_PUBLIC_BACKEND_URL;
   const categoryApiLink = `${url}/category`;
 
